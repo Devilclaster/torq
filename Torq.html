@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Torq – Request your order</title>
+<meta name="description" content="Torq: one featured product, a simple order request, no payment needed. Contact technestshop3@gmail.com.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#2338f5;--ink:#0e1330;--sun:#ffc83d;--mist:#eef1ff;--white:#fff;--line:#d5dbff;--text:#0e1330;--muted:#4a5075;--card:#fff;--bg:#f7f8ff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0f26;--card:#141a3d;--text:#f2f4ff;--muted:#aab2e0;--line:#262e63;--mist:#141a3d}}
+:root[data-theme="dark"]{--bg:#0b0f26;--card:#141a3d;--text:#f2f4ff;--muted:#aab2e0;--line:#262e63;--mist:#141a3d}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.05rem/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3,.brand{font-family:"Space Grotesk","DM Sans",system-ui,sans-serif;line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bar{background:var(--sun);color:#0e1330;text-align:center;font-weight:700;font-size:.95rem;padding:9px 14px}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.brand{font-size:1.9rem;font-weight:700;text-decoration:none;letter-spacing:-.02em}
+.brand i{font-style:normal;color:var(--blue)}
+nav a{margin-left:18px;text-decoration:none;font-weight:500}
+nav a:hover{text-decoration:underline}
+.hero{background:var(--blue);color:#fff;border-radius:0 0 40px 40px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:72px}
+.hero h1{font-size:clamp(3rem,8vw,6rem);font-weight:700;letter-spacing:-.03em}
+.hero p{max-width:34ch;font-size:1.2rem;margin:20px 0 26px;color:#e3e7ff}
+.price{display:flex;align-items:baseline;gap:12px;margin-bottom:24px}
+.price strong{font:700 2rem "Space Grotesk",sans-serif}
+.price span{color:#cdd4ff;font-size:.95rem}
+.btn{display:inline-block;background:var(--sun);color:#0e1330;font:700 1.1rem "DM Sans",sans-serif;padding:16px 30px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.fine{display:block;margin-top:14px;font-size:.92rem;color:#cdd4ff}
+.dial{position:relative;aspect-ratio:1;max-width:400px;width:100%;margin:auto}
+.dial .ring{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,var(--sun),#fff,var(--sun) 40%,#7d8cff 70%,var(--sun));animation:spin 1.6s cubic-bezier(.2,.8,.2,1) 1}
+.dial .ring::after{content:"";position:absolute;inset:14px;border-radius:50%;background:var(--blue)}
+.dial .core{position:absolute;inset:15%;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-content:center;text-align:center;box-shadow:0 18px 50px rgba(5,10,80,.45)}
+.core b{font:700 2.6rem "Space Grotesk",sans-serif;letter-spacing:-.03em}
+.core small{font-size:.85rem;color:var(--muted)}
+@keyframes spin{from{transform:rotate(-300deg);opacity:.2}to{transform:rotate(0);opacity:1}}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:-34px;position:relative}
+.trust div{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:20px 22px;font-weight:700}
+.trust small{display:block;font-weight:400;color:var(--muted)}
+section{padding:80px 0 0}
+h2{font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.02em;margin-bottom:18px}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.story p{color:var(--muted);margin:0 0 14px;max-width:60ch}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:26px 0 0;padding:0;list-style:none}
+.steps li{counter-increment:s;background:var(--mist);border-radius:26px;padding:26px}
+.steps li::before{content:counter(s);display:grid;place-content:center;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font:700 1.1rem "Space Grotesk",sans-serif;margin-bottom:14px}
+.steps b{display:block;font-size:1.15rem}
+.steps span{color:var(--muted)}
+.order{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+.order p{color:var(--muted);max-width:36ch}
+.mail{display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:var(--ink);color:#fff;padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;word-break:break-all}
+.mail:hover{background:var(--blue)}
+form{background:var(--card);border:2px solid var(--line);border-radius:30px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f{display:flex;flex-direction:column;gap:6px}.full{grid-column:1/-1}
+label{font-weight:700;font-size:.95rem}
+input,textarea{font:inherit;color:inherit;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:13px 14px;width:100%}
+input:focus,textarea:focus{border-color:var(--blue);outline:none}
+textarea{min-height:100px;resize:vertical}
+form .btn{background:var(--blue);color:#fff;width:100%}
+.note{font-size:.9rem;color:var(--muted);margin:0}
+footer{margin-top:90px;background:var(--ink);color:#d8ddff;padding:36px 0}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center}
+footer .brand{color:#fff}footer .brand i{color:var(--sun)}
+footer a{color:var(--sun);font-weight:700}
+@media(max-width:820px){.hero .wrap,.story,.order,.steps,.trust{grid-template-columns:1fr}.dial{max-width:280px;order:-1}.hero .wrap{padding-top:28px;padding-bottom:60px}form{grid-template-columns:1fr;padding:22px}nav{display:none}}
+@media(prefers-reduced-motion:reduce){.dial .ring{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="bar">No payment needed. Send a request and we confirm the next steps.</div>
+<div class="hero">
+ <div class="wrap" style="padding-bottom:0;padding-top:0"><header class="top" style="grid-column:1/-1;width:100%">
+  <a class="brand" href="#top" style="color:#fff">torq<i style="color:var(--sun)">.</i></a>
+  <nav><a href="#how">How it works</a><a href="#order">Order</a><a href="mailto:technestshop3@gmail.com">Contact</a></nav>
+ </header></div>
+ <div class="wrap" id="top">
+  <div>
+   <h1>Product<br>name.</h1>
+   <p>Your product story goes here: one clear, honest line about what makes this worth bringing home.</p>
+   <div class="price"><strong>Price —</strong><span>Add your price before launch</span></div>
+   <a class="btn" href="#order">Request your order</a>
+   <span class="fine">No payment details. Just tell us where to reach you.</span>
+  </div>
+  <div class="dial" role="img" aria-label="Featured product placeholder"><div class="ring"></div><div class="core"><b>torq.</b><small>Featured product</small></div></div>
+ </div>
+</div>
+
+<main class="wrap">
+ <div class="trust" aria-label="Why order with Torq">
+  <div>No payment now<small>Nothing is charged at this stage</small></div>
+  <div>Simple request<small>Four fields, under a minute</small></div>
+  <div>Real person replies<small>We follow up by email or phone</small></div>
+ </div>
+
+ <section class="story">
+  <div><h2>Good things should be easy.</h2></div>
+  <div><p>Torq keeps the store focused on one featured product and makes it easy to ask for yours. Product details will be added here when they're ready.</p>
+  <p>This is an order request, not a paid checkout. We use your details only to follow up on your request.</p></div>
+ </section>
+
+ <section id="how">
+  <h2>How it works</h2>
+  <ol class="steps">
+   <li><b>Share your details</b><span>Name, email, phone and delivery address.</span></li>
+   <li><b>We confirm</b><span>We contact you with the next steps.</span></li>
+   <li><b>No charge yet</b><span>You only pay once you've agreed the details.</span></li>
+  </ol>
+ </section>
+
+ <section class="order" id="order">
+  <div>
+   <h2>Let's get the ball rolling.</h2>
+   <p>Leave your contact and delivery details. Prefer to write directly? Email us.</p>
+   <a class="mail" href="mailto:technestshop3@gmail.com">✉ technestshop3@gmail.com</a>
+  </div>
+  <form id="f" novalidate>
+   <div class="f"><label for="n">Full name</label><input id="n" name="n" autocomplete="name" placeholder="Your name" required></div>
+   <div class="f"><label for="e">Email address</label><input id="e" name="e" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+   <div class="f full"><label for="p">Phone number</label><input id="p" name="p" type="tel" autocomplete="tel" placeholder="Your best contact number" required></div>
+   <div class="f full"><label for="a">Delivery address</label><textarea id="a" name="a" autocomplete="street-address" placeholder="Street, city, region and postal code" required></textarea></div>
+   <button class="btn full" type="submit">Send order request</button>
+   <p class="note full" id="msg" role="status" aria-live="polite">All fields are required. Sending opens your email app with the request ready to send to technestshop3@gmail.com. No payment is taken.</p>
+  </form>
+ </section>
+</main>
+
+<footer><div class="wrap">
+ <a class="brand" href="#top">torq<i>.</i></a>
+ <span>Questions? <a href="mailto:technestshop3@gmail.com">technestshop3@gmail.com</a></span>
+ <span>A straightforward order request. No payment taken.</span>
+</div></footer>
+
+<script>
+document.getElementById('f').addEventListener('submit',function(ev){
+ ev.preventDefault();
+ var v=function(i){return document.getElementById(i).value.trim()},m=document.getElementById('msg');
+ if(!v('n')||!v('e')||!v('p')||!v('a')){m.textContent='Please fill in every field so we can reach you.';return}
+ if(!/^\S+@\S+\.\S+$/.test(v('e'))){m.textContent='Enter a valid email address, like you@example.com.';return}
+ var body='Name: '+v('n')+'\nEmail: '+v('e')+'\nPhone: '+v('p')+'\nDelivery address: '+v('a');
+ m.textContent='Opening your email app. Press send there to submit your request.';
+ location.href='mailto:technestshop3@gmail.com?subject='+encodeURIComponent('Torq order request')+'&body='+encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
